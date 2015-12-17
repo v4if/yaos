@@ -5,30 +5,14 @@
  *     Jichao Wu (Atkjest), karma_wjc@yeah.net
  */
 
-#include "types.h"
+#include "console.h"
 
 int kern_entry()
 {
-	uint8_t *input = (uint8_t *)0xB8000;
-    uint8_t color = (0 << 4) | (15 & 0x0F);
+	//一定要先清屏在输出字符，不然会出现问题，黑底白字或者字符根本就显示不出来
+	console_clear();
 
-    *input++ = 'H'; *input++ = color;
-    *input++ = 'e'; *input++ = color;
-    *input++ = 'l'; *input++ = color;
-    *input++ = 'l'; *input++ = color;
-    *input++ = 'o'; *input++ = color;
-    *input++ = ','; *input++ = color;
-    *input++ = ' '; *input++ = color;
-    *input++ = 'O'; *input++ = color;
-    *input++ = 'S'; *input++ = color;
-    *input++ = ' '; *input++ = color;
-    *input++ = 'K'; *input++ = color;
-    *input++ = 'e'; *input++ = color;
-    *input++ = 'r'; *input++ = color;
-    *input++ = 'n'; *input++ = color;
-    *input++ = 'e'; *input++ = color;
-    *input++ = 'l'; *input++ = color;
-    *input++ = '!'; *input++ = color;
+	console_puts_color("Hello atkos , That is it",vga_black,vga_light_cyan);
 
 	return 0;
 }

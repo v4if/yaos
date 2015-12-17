@@ -16,7 +16,7 @@ C_FLAGS=-c -Wall -m32 -ggdb -gstabs+ -nostdinc -fno-builtin -fno-stack-protector
 LD_FLAGS=-T scripts/kernel.ld -m elf_i386 -nostdlib
 ASM_FLAGS = -f elf -g -F stabs
 
-all:$(S_OBJ) $(C_OBJ) link update_image
+all:$(S_OBJ) $(C_OBJ) link update_image clean
 
 #模式规则
 #$<为所有依赖文件，$@为所有目标文件，相当于foreach处理操作
@@ -36,7 +36,7 @@ update_image:
 	sudo mount floppy.img /mnt/kernel
 	sudo cp atkos /mnt/kernel/
 	sleep 1
-	sudo umount /mnt/kernel
+	sudo umount /mnt/kernel/
 
 .PHONY:mount_image
 mount_image:
