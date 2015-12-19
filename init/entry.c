@@ -5,14 +5,18 @@
  *     Jichao Wu (Atkjest), karma_wjc@yeah.net
  */
 
-#include "console.h"
+#include <../include/console.h>
+#include <../include/debug.h>
+#include <../include/math.h>
 
 int kern_entry()
 {
 	//一定要先清屏在输出字符，不然会出现问题，黑底白字或者字符根本就显示不出来
 	console_clear();
 
-	console_puts_color("Hello atkos , That is it",vga_black,vga_light_cyan);
+	//console_puts_color("Hello atkos , That is it",vga_black,vga_light_cyan);
+
+	printk("This is a demo\t%s %d %f\n","hello",23,0.35);
 
 	return 0;
 }

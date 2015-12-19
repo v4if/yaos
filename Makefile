@@ -16,7 +16,7 @@ C_FLAGS=-c -Wall -m32 -ggdb -gstabs+ -nostdinc -fno-builtin -fno-stack-protector
 LD_FLAGS=-T scripts/kernel.ld -m elf_i386 -nostdlib
 ASM_FLAGS = -f elf -g -F stabs
 
-all:$(S_OBJ) $(C_OBJ) link update_image clean
+all:$(S_OBJ) $(C_OBJ) link update_image
 
 #模式规则
 #$<为所有依赖文件，$@为所有目标文件，相当于foreach处理操作
@@ -27,6 +27,7 @@ all:$(S_OBJ) $(C_OBJ) link update_image clean
 	@echo 编译汇编文件...
 	$(ASM) $(ASM_FLAGS) $<
 link:
+	sleep 1
 	@echo 链接内核文件...
 	$(LD) $(LD_FLAGS) $(S_OBJ) $(C_OBJ) -o atkos
 

@@ -29,20 +29,34 @@ typedef enum vga_color
 	vga_white = 15
 }vga_clolor_t;
 
+#define WRITE_HEX_COLOR vga_light_magenta
+#define ALLERT_COLOR vga_light_red
+
 //清屏操作
 void console_clear();
 
+//##返回值为向屏幕输出的字符数##
+
 //屏幕输出一个字符
-void console_putc(char c);
+int console_putc(char c);
 
 //屏幕输出一个字符（带颜色） 背景色，前景色
-void console_putc_color(char c,vga_clolor_t back,vga_clolor_t fore);
+int console_putc_color(char c,vga_clolor_t back,vga_clolor_t fore);
 
 //屏幕输出字符串 '\0' 结尾
-void console_puts(char *cstr);
+int console_puts(char *cstr);
 
 //屏幕输出字符串 '\0' 结尾 带颜色
-void console_puts_color(char *cstr, vga_clolor_t back, vga_clolor_t fore);
+int console_puts_color(char *cstr, vga_clolor_t back, vga_clolor_t fore);
+
+//屏幕输出十进制整形数 即以ACSII码文本形式输出
+int console_write_dec(int n);
+
+//屏幕输出十六进制数 即以binary二进制形式输出
+int console_write_hex(int n);
+
+//屏幕输出float实数数据
+int console_write_float(float n);
 
 #endif
 

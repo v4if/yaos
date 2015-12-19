@@ -17,6 +17,10 @@
     #define FALSE 0
 #endif
 
+#ifndef PRECISION
+ 	#define PRECISION 1e-5			//0.00001
+#endif
+ 
 //变量类型定义
 typedef unsigned int uint32_t;
 typedef int int32_t;

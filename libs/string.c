@@ -2,7 +2,7 @@
  * @File   Description: 字符串函数操作
  *
  * @Create 		  Date:	2015-12-17 19:38:54
- * @Last Modified time:	2015-12-17 20:04:57
+ * @Last Modified time:	2015-12-19 11:23:33
  *
  * @Author: 
  * 		atkjest(Jichao Wu)		
@@ -12,7 +12,7 @@
 #include "string.h"
 
 //字符串拷贝函数
-char *_strcpy(char *dest,char *src)
+char *strcpy(char *dest,char *src)
 {
     char *ret = dest;
 
@@ -23,7 +23,7 @@ char *_strcpy(char *dest,char *src)
 }
 
 //计算字符串长度函数
-int _strlen(char *cstr)
+int strlen(char *cstr)
 {
     int no = 0;
 
@@ -34,9 +34,9 @@ int _strlen(char *cstr)
 }
 
 //追加字符串函数
-char *_strcat(char *dest,char *src)
+char *strcat(char *dest,char *src)
 {
-    int len = _strlen(dest);
+    int len = strlen(dest);
 
     while(*src)
     {
@@ -49,7 +49,7 @@ char *_strcat(char *dest,char *src)
 }
 
 //将字符串中的小写转为大写函数
-char *_strupr(char *cstr)
+char *strupr(char *cstr)
 {
     char *ret = cstr;
 
@@ -68,7 +68,7 @@ char *_strupr(char *cstr)
 }
 
 //字符串比较函数，按照字典序
-int _strcmp(char *str1,char *str2)
+int strcmp(char *str1,char *str2)
 {
     int ret;
     while(*str1 && *str2 && (*str1 == *str2))
@@ -86,4 +86,36 @@ int _strcmp(char *str1,char *str2)
         return -1;
     else
         return 0;
+}
+
+//内存拷贝函数
+void *memcpy(void *dest,void *src,int len)
+{
+    //拷贝函数的最小单位按照字节处理
+    char *ret = (char *)dest;
+
+    //不知道两个指针的类型的话就不可以自加，这里转换为字节类型
+    char *dest_t = (char *)dest;
+    char *src_t = (char *)src;
+
+    while(len--)
+        *dest_t++ = *src_t++;
+
+    return ret;
+}
+
+//在一段内存块中填充某个给定的值，它是对较大的结构体或数组进行清零操作的一种最快方法
+void *memset(void *dest,int ch,int len)
+{
+    char *ret = (char *)dest;
+    //内部处理依旧按照最小单位为字节类型
+    char *dest_t = ret;
+
+    //这里注意len为填充的字节数
+    while(len--)
+    {
+        *dest_t++ = ch;
+    }
+
+    return ret;
 }
