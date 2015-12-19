@@ -4,8 +4,8 @@
  * Authors:
  *     Jichao Wu (Atkjest), karma_wjc@yeah.net
  */
-#ifndef STRING_H_INCLUDED
-#define STRING_H_INCLUDED
+#ifndef _STRING_H
+#define _STRING_H
 
 //字符串拷贝函数
 char *strcpy(char *dest,char *src);

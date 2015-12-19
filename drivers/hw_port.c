@@ -4,7 +4,7 @@
  * Authors:
  *     Jichao Wu (Atkjest), karma_wjc@yeah.net
  */
-#include "hw_port.h"
+#include <../include/hw_port.h>
 //端口写一个字节
 inline void outb(uint16_t port,uint8_t value)
 {

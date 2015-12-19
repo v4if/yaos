@@ -4,10 +4,10 @@
  * Authors:
  *     Jichao Wu (Atkjest), karma_wjc@yeah.net
  */
-#ifndef __HW_PORT_H__
-#define __HW_PORT_H__
+#ifndef _HW_PORT_H
+#define _HW_PORT_H
 
-#include "types.h"
+#include <../include/types.h>
 
 //端口写一个字节
 void outb(uint16_t port,uint8_t value);

@@ -2,14 +2,14 @@
  * @File   Description: 字符串函数操作
  *
  * @Create 		  Date:	2015-12-17 19:38:54
- * @Last Modified time:	2015-12-19 11:23:33
+ * @Last Modified time:	2015-12-19 15:26:30
  *
  * @Author: 
  * 		atkjest(Jichao Wu)		
  *		karma_wjc@yeah.net	
  */
 
-#include "string.h"
+#include <../include/string.h>
 
 //字符串拷贝函数
 char *strcpy(char *dest,char *src)

@@ -5,8 +5,8 @@
  *     Jichao Wu (Atkjest), karma_wjc@yeah.net
  */
 
-#ifndef __TYPES_H__
-#define __TYPES_H__
+#ifndef _TYPES_H
+#define _TYPES_H
 
 #ifndef NULL
     #define NULL 0

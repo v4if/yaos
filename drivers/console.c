@@ -19,8 +19,8 @@
  * 待解决问题：console_write_dec(025)与console_write_hex(025)输出的数据都等于21
  */
 
-#include "console.h"
-#include "hw_port.h"
+#include <../include/console.h>
+#include <../include/hw_port.h>
 #include <../include/math.h>
 
 /*

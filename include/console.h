@@ -4,10 +4,10 @@
  * Authors:
  *     Jichao Wu (Atkjest), karma_wjc@yeah.net
  */
-#ifndef __CONSOLE_H__
-#define __CONSOLE_H__
+#ifndef _CONSOLE_H
+#define _CONSOLE_H
 
-#include "types.h"
+#include <../include/types.h>
 
 typedef enum vga_color
 {
