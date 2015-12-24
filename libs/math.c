@@ -2,14 +2,14 @@
  * @File   Description: 一些数学函数库
  *
  * @Create 		  Date:	2015-12-19 11:02:43
- * @Last Modified time:	2015-12-19 15:26:21
+ * @Last Modified time:	2015-12-22 19:13:47
  *
  * @Author: 
  * 		atkjest(Jichao Wu)		
  *		karma_wjc@yeah.net	
  */
-#include <../include/math.h>
- 
+#include "math.h"
+
 //求整形的绝对值
 int abs(int n)
 {

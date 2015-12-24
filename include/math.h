@@ -11,7 +11,7 @@
 #ifndef _MATH_H
 #define _MATH_H
 
-#include <../include/types.h>
+#include "types.h"
 
 //求整形的绝对值
 int abs(int n);

@@ -1,0 +1,104 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ALLERT_COLOR	include/console.h	33;"	d
+ASM	Makefile	/^ASM=nasm$/;"	m
+ASM_FLAGS	Makefile	/^ASM_FLAGS = -f elf -g -F stabs$/;"	m
+CC	Makefile	/^CC=gcc$/;"	m
+C_FLAGS	Makefile	/^C_FLAGS=-c -Wall -m32 -ggdb -gstabs+ -nostdinc -fno-builtin -fno-stack-protector -I include $/;"	m
+C_OBJ	Makefile	/^C_OBJ=$(patsubst %.c,%.o,$(C_SRC))$/;"	m
+C_SRC	Makefile	/^C_SRC=$(shell find . -name "*.c")$/;"	m
+FALSE	include/types.h	17;"	d
+LD	Makefile	/^LD=ld$/;"	m
+LD_FLAGS	Makefile	/^LD_FLAGS=-T scripts\/kernel.ld -m elf_i386 -nostdlib$/;"	m
+MBOOT_CHECKSUM	boot/boot.s	/^MBOOT_CHECKSUM 		equ 	- (MBOOT_HEADER_MAGIC + MBOOT_HEADER_FLAGS)$/;"	d
+MBOOT_HEADER_FLAGS	boot/boot.s	/^MBOOT_HEADER_FLAGS 	equ 	MBOOT_PAGE_ALIGN | MBOOT_MEM_INFO$/;"	d
+MBOOT_HEADER_MAGIC	boot/boot.s	/^MBOOT_HEADER_MAGIC 	equ 	0x1BADB002 	; Multiboot 魔数，由规范决定的$/;"	d
+MBOOT_MEM_INFO	boot/boot.s	/^MBOOT_MEM_INFO 		equ 	1 << 1    	; 1 号位通过 Multiboot 信息结构的 mem_* 域包括可用内存的信息$/;"	d
+MBOOT_PAGE_ALIGN	boot/boot.s	/^MBOOT_PAGE_ALIGN 	equ 	1 << 0    	; 0 号位表示所有的引导模块将按页(4KB)边界对齐$/;"	d
+NULL	include/types.h	12;"	d
+PRECISION	include/types.h	21;"	d
+STACK_TOP	boot/boot.s	/^STACK_TOP equ $-stack-1 	 ; 内核栈顶，$ 符指代是当前地址$/;"	d
+S_OBJ	Makefile	/^S_OBJ=$(patsubst %.s,%.o,$(S_SRC))$/;"	m
+S_SRC	Makefile	/^S_SRC=$(shell find . -name "*.s")$/;"	m
+TRUE	include/types.h	16;"	d
+WRITE_HEX_COLOR	include/console.h	32;"	d
+_CONSOLE_H	include/console.h	8;"	d
+_DEBUG_H	include/debug.h	12;"	d
+_HW_PORT_H	include/hw_port.h	8;"	d
+_MATH_H	include/math.h	12;"	d
+_STDARGS_H	include/stdarg.h	12;"	d
+_STRING_H	include/string.h	8;"	d
+_TYPES_H	include/types.h	9;"	d
+abs	libs/math.c	/^int abs(int n)$/;"	f
+console_clear	drivers/console.c	/^void console_clear()$/;"	f
+console_hight	drivers/console.c	33;"	d	file:
+console_putc	drivers/console.c	/^int console_putc(char c)$/;"	f
+console_putc_color	drivers/console.c	/^int console_putc_color(char c,vga_clolor_t back,vga_clolor_t fore)$/;"	f
+console_puts	drivers/console.c	/^int console_puts(char *cstr)$/;"	f
+console_puts_color	drivers/console.c	/^int console_puts_color(char *cstr, vga_clolor_t back, vga_clolor_t fore)$/;"	f
+console_width	drivers/console.c	32;"	d	file:
+console_write_dec	drivers/console.c	/^int console_write_dec(int n)$/;"	f
+console_write_float	drivers/console.c	/^int console_write_float(float n)$/;"	f
+console_write_hex	drivers/console.c	/^int console_write_hex(int n)$/;"	f
+cursor_x	drivers/console.c	/^static uint8_t cursor_x = 0;$/;"	v	file:
+cursor_y	drivers/console.c	/^static uint8_t cursor_y = 0;$/;"	v	file:
+dd	boot/boot.s	/^dd MBOOT_CHECKSUM       ; 检测数值，其含义在定义处$/;"	l
+dd	boot/boot.s	/^dd MBOOT_HEADER_FLAGS   ; GRUB 的一些加载时选项，其详细注释在定义处$/;"	l
+dd	boot/boot.s	/^dd MBOOT_HEADER_MAGIC 	; GRUB 会通过这个魔数判断该映像是否支持$/;"	l
+fabs	libs/math.c	/^float fabs(float n)$/;"	f
+glb_mboot_ptr	boot/boot.s	/^glb_mboot_ptr: 			 ; 全局的 multiboot 结构体指针$/;"	l
+inb	drivers/hw_port.c	/^inline uint8_t inb(uint16_t port)$/;"	f
+int16_t	include/types.h	/^typedef short int16_t;$/;"	t
+int32_t	include/types.h	/^typedef int int32_t;$/;"	t
+int8_t	include/types.h	/^typedef char int8_t;$/;"	t
+inw	drivers/hw_port.c	/^inline uint16_t inw(uint16_t port)$/;"	f
+kern_entry	init/entry.c	/^int kern_entry()$/;"	f
+memcpy	libs/string.c	/^void *memcpy(void *dest,void *src,int len)$/;"	f
+memset	libs/string.c	/^void *memset(void *dest,int ch,int len)$/;"	f
+move_cursor	drivers/console.c	/^static void move_cursor()$/;"	f	file:
+outb	drivers/hw_port.c	/^inline void outb(uint16_t port,uint8_t value)$/;"	f
+pow	libs/math.c	/^float pow(float x,int y)$/;"	f
+printk	kernel/debug/printk.c	/^int printk(const char *fmt,...)$/;"	f
+scroll	drivers/console.c	/^static void scroll()$/;"	f	file:
+section	boot/boot.s	/^section .bss 			 ; 未初始化的数据段从这里开始$/;"	l
+section	boot/boot.s	/^section .text 	; 代码段从这里开始$/;"	l
+stack	boot/boot.s	/^stack:$/;"	l
+start	boot/boot.s	/^start:$/;"	l
+stop	boot/boot.s	/^stop:$/;"	l
+strcat	libs/string.c	/^char *strcat(char *dest,char *src)$/;"	f
+strcmp	libs/string.c	/^int strcmp(char *str1,char *str2)$/;"	f
+strcpy	libs/string.c	/^char *strcpy(char *dest,char *src)$/;"	f
+strlen	libs/string.c	/^int strlen(char *cstr)$/;"	f
+strupr	libs/string.c	/^char *strupr(char *cstr)$/;"	f
+tab_width	drivers/console.c	36;"	d	file:
+uint16_t	include/types.h	/^typedef unsigned short uint16_t;$/;"	t
+uint32_t	include/types.h	/^typedef unsigned int uint32_t;$/;"	t
+uint8_t	include/types.h	/^typedef unsigned char uint8_t;$/;"	t
+va_arg	include/stdarg.h	20;"	d
+va_end	include/stdarg.h	22;"	d
+va_list	include/stdarg.h	/^typedef __builtin_va_list va_list;				\/\/参数列表指针，一般是char* 类型$/;"	t
+va_start	include/stdarg.h	18;"	d
+vga_black	include/console.h	/^    vga_black = 0,$/;"	e	enum:vga_color
+vga_blue	include/console.h	/^	vga_blue = 1,$/;"	e	enum:vga_color
+vga_brown	include/console.h	/^	vga_brown = 6,$/;"	e	enum:vga_color
+vga_clolor_t	include/console.h	/^}vga_clolor_t;$/;"	t	typeref:enum:vga_color
+vga_color	include/console.h	/^typedef enum vga_color$/;"	g
+vga_cyan	include/console.h	/^	vga_cyan = 3,$/;"	e	enum:vga_color
+vga_dark_grey	include/console.h	/^	vga_dark_grey = 8,$/;"	e	enum:vga_color
+vga_green	include/console.h	/^	vga_green = 2,$/;"	e	enum:vga_color
+vga_light_blue	include/console.h	/^	vga_light_blue = 9,$/;"	e	enum:vga_color
+vga_light_brown	include/console.h	/^	vga_light_brown  = 14, 	\/\/ yellow$/;"	e	enum:vga_color
+vga_light_cyan	include/console.h	/^	vga_light_cyan = 11,$/;"	e	enum:vga_color
+vga_light_green	include/console.h	/^	vga_light_green = 10,$/;"	e	enum:vga_color
+vga_light_grey	include/console.h	/^	vga_light_grey = 7,$/;"	e	enum:vga_color
+vga_light_magenta	include/console.h	/^	vga_light_magenta = 13,$/;"	e	enum:vga_color
+vga_light_red	include/console.h	/^	vga_light_red = 12,$/;"	e	enum:vga_color
+vga_magenta	include/console.h	/^	vga_magenta = 5,$/;"	e	enum:vga_color
+vga_memory	drivers/console.c	/^static uint16_t *vga_memory = (uint16_t *)0xB8000;$/;"	v	file:
+vga_red	include/console.h	/^	vga_red = 4,$/;"	e	enum:vga_color
+vga_white	include/console.h	/^	vga_white = 15$/;"	e	enum:vga_color
+vsprintf	kernel/debug/printk.c	/^static int vsprintf(const char *fmt,va_list args)$/;"	f	file:

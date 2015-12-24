@@ -5,12 +5,14 @@
  *     Jichao Wu (Atkjest), karma_wjc@yeah.net
  */
 
-#include <../include/console.h>
-#include <../include/debug.h>
-#include <../include/math.h>
+#include "console.h"
+#include "stdio.h"
+#include "gdt.h"
 
 int kern_entry()
 {
+	init_gdt();
+
 	console_clear();
 
 	//console_puts_color("Hello atkos , That is it",vga_black,vga_light_cyan);

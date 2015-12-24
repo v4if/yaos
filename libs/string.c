@@ -9,7 +9,7 @@
  *		karma_wjc@yeah.net	
  */
 
-#include <../include/string.h>
+#include "string.h"
 
 //字符串拷贝函数
 char *strcpy(char *dest,char *src)

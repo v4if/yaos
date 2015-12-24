@@ -7,7 +7,7 @@
 #ifndef _CONSOLE_H
 #define _CONSOLE_H
 
-#include <../include/types.h>
+#include "types.h"
 
 typedef enum vga_color
 {

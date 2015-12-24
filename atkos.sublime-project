@@ -1,0 +1,28 @@
+{
+	"folders":
+	[
+		{
+			"path": "/root/workBench/atkos/ref_kernel/hurlex-doc"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "/root/workBench/github/blog"
+		}
+	],
+	"settings":
+	{
+		"cc_include_options":
+		[
+			"-I/root/workBench/atkos/master/include",
+			"-I/headfile_path2",
+			"-I/headfile_path3"
+		],
+		"sublimeclang_options":
+		[
+			"-I/root/workBench/atkos/master/include",
+			"-I/project/specific/path/2"
+		]
+	}
+}
