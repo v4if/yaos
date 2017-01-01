@@ -14,7 +14,7 @@ ASM=nasm
 
 C_FLAGS=-c -Wall -m32 -ggdb -gstabs+ -nostdinc -fno-builtin -fno-stack-protector -I include 
 LD_FLAGS=-T scripts/kernel.ld -m elf_i386 -nostdlib
-ASM_FLAGS = -f elf -g -F stabs
+ASM_FLAGS=-f elf -g -F stabs
 
 all:$(S_OBJ) $(C_OBJ) link update_image
 
@@ -25,9 +25,8 @@ all:$(S_OBJ) $(C_OBJ) link update_image
 	$(CC) $(C_FLAGS) $< -o $@
 %.o:%.s
 	@echo 编译汇编文件...
-	$(ASM) $(ASM_FLAGS) $<
+	$(ASM) $(ASM_FLAGS) $< -o $@
 link:
-	sleep 1
 	@echo 链接内核文件...
 	$(LD) $(LD_FLAGS) $(S_OBJ) $(C_OBJ) -o atkos
 

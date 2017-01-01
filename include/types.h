@@ -21,6 +21,12 @@
  	#define PRECISION 1e-5			//0.00001
 #endif
  
+typedef enum bool_t
+{
+	false_t,
+	true_t
+}bool_t;
+
 //变量类型定义
 typedef unsigned int uint32_t;
 typedef int int32_t;

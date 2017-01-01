@@ -29,7 +29,7 @@ typedef enum vga_color
 	vga_white = 15
 }vga_clolor_t;
 
-#define WRITE_HEX_COLOR vga_light_magenta
+#define WRITE_HEX_COLOR vga_light_brown
 #define ALLERT_COLOR vga_light_red
 
 //清屏操作

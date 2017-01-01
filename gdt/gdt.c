@@ -2,7 +2,7 @@
  * @File   Description: 全局描述符表相关函数
  *
  * @Create 		  Date:	2015-12-23 18:59:33
- * @Last Modified time:	2015-12-24 13:29:58
+ * @Last Modified time:	2016-01-04 20:58:08
  *
  * @Author: 
  * 		atkjest(Jichao Wu)		
@@ -25,7 +25,7 @@ gdtr_t gdtr;
 gdt_entry_t gdt_entry[GDT_LENTH];
 
 //全局描述符表构造函数
-static void gdt_set_gate(uint16_t selector,uint32_t base,uint32_t limit,uint8_t access,uint8_t granularity);
+static void gdt_set_gate(uint16_t no,uint32_t base,uint32_t limit,uint8_t access,uint8_t granularity);
 
 //初始化全局描述符表，并将gdt的基地址加载到gdtr
 void init_gdt()
@@ -58,15 +58,15 @@ typedef struct gdt_entry_t
 	uint8_t  base_high;			//基地址高8位
 }__attribute__((packed)) gdt_entry_t;
 */
-static void gdt_set_gate(uint16_t selector,uint32_t base,uint32_t limit,uint8_t access,uint8_t granularity)
+static void gdt_set_gate(uint16_t no,uint32_t base,uint32_t limit,uint8_t access,uint8_t granularity)
 {
-	gdt_entry[selector].base_low = (base & 0xFFFF);
-	gdt_entry[selector].base_middle = (base >> 16) & 0xFF;
-	gdt_entry[selector].base_high = (base >> 24) & 0xFF;
+	gdt_entry[no].base_low = (base & 0xFFFF);
+	gdt_entry[no].base_middle = (base >> 16) & 0xFF;
+	gdt_entry[no].base_high = (base >> 24) & 0xFF;
 
-	gdt_entry[selector].limit_low = (limit & 0xFFFF);
-	gdt_entry[selector].granularity = (limit >> 16) & 0xF;
+	gdt_entry[no].limit_low = (limit & 0xFFFF);
+	gdt_entry[no].granularity = (limit >> 16) & 0xF;
 
-	gdt_entry[selector].access = access;
-	gdt_entry[selector].granularity |= granularity & 0xF0;
+	gdt_entry[no].access = access;
+	gdt_entry[no].granularity |= granularity & 0xF0;
 }

@@ -1,7 +1,7 @@
 ; -------------------------------------------------
-; 	将 GDT 地址 载入 GDTR
+; 	将GDT的基地址加载到GDTR
 ;
-; 	hurley 2013/7/26
+; 	代码借鉴自[hurlex-doc](https://github.com/hurley25/hurlex-doc)
 ;
 ; -------------------------------------------------
 
@@ -12,7 +12,7 @@ gdtr_flush:
 	mov eax, [esp+4]  ; 参数存入 eax 寄存器		正是gdtr压栈的位置
 	lgdt [eax]        ; 加载到 GDTR [修改原先GRUB设置]
 
-	mov ax, 0x10      ; 加载我们的数据段描述符		加载第二个段，正是代码段
+	mov ax, 0x10      ; 加载我们的数据段描述符		相当于置位数据段
 	mov ds, ax        ; 更新所有可以更新的段寄存器
 	mov es, ax
 	mov fs, ax

@@ -17,11 +17,18 @@
 
 /*
  * 待解决问题：console_write_dec(025)与console_write_hex(025)输出的数据都等于21
+ * 前面加上0表示八进制！？
  */
 
-#include <../include/console.h>
-#include <../include/hw_port.h>
-#include <../include/math.h>
+/*
+ * 修改vga显存虚拟地址，因为内核旧地址和内核偏移之后的地址都添加了页表的映射，
+ * 所以这里不修改显存的地址，也可以实现屏幕打印
+ */
+
+#include "console.h"
+#include "hw_port.h"
+#include "math.h"
+#include "virtual_mm.h"
 
 /*
  * 在默认的文本模式(Text-Mode)下，VGA控制器保留了一块内存(0x8b000~0x8bfa0)作为屏幕上字符显示的缓冲区，25*80
@@ -37,7 +44,11 @@
 
 //将全局变量限制在本文件内部
 //vga的显示缓冲起始地址0xB8000
-static uint16_t *vga_memory = (uint16_t *)0xB8000;
+#ifdef VIRTUAL_PAGE_ON
+    static uint16_t *vga_memory = (uint16_t *)(0xB8000 + KERN_OFFSET);
+#else
+    static uint16_t *vga_memory = (uint16_t *)0xB8000;
+#endif
 
 //屏幕光标的坐标
 static uint8_t cursor_x = 0;
@@ -264,6 +275,13 @@ int console_write_hex(int n)
     int ret = 0;
 
     console_puts_color("0x",vga_black,WRITE_HEX_COLOR);
+    
+    if (n == 0)
+    {
+        console_putc_color('0',vga_black,vga_light_grey);
+        ret++;
+        goto todo_fill_zero;
+    }
 
     //高位在左，低位在右
     for (i = 28; i >= 0; i = i-4)
@@ -291,6 +309,14 @@ int console_write_hex(int n)
             console_putc_color(temp - 0x0 + '0',vga_black,vga_light_grey);
             ret++;
         }
+    }
+
+todo_fill_zero:
+    //默认8字节0填充
+    while(ret < 8)
+    {
+        console_putc(' ');
+        ret++;
     }
 
     return ret;

@@ -2,7 +2,7 @@
  * @File   Description: 打印调试函数printk的相关实现
  *
  * @Create 		  Date:	2015-12-18 14:40:28
- * @Last Modified time:	2015-12-23 10:32:14
+ * @Last Modified time:	2016-01-07 23:29:07
  *
  * @Author: 
  * 		atkjest(Jichao Wu)		
@@ -13,6 +13,12 @@
 #include "string.h"
 
 static int vsprintf(const char *fmt,va_list args);
+
+int put_line()
+{
+	console_putc('\n');
+	return 1;
+}
 
 int printk(const char *fmt,...)
 {
@@ -50,6 +56,7 @@ static int vsprintf(const char *fmt,va_list args)
 	char ch_template;			//char
 	char *str_template;			//string
 	int int_template;			//int
+	int hex_template;			//hex
 	float float_template;		//float
 	
 	//解析形式化参数列表  解析参数buff[0] = *(char *)args;
@@ -70,6 +77,11 @@ static int vsprintf(const char *fmt,va_list args)
 				//int
 				case 'd' :	int_template = va_arg(args,int);
 							byte_len += console_write_dec(int_template);
+							break;
+				//hex
+				case 'x' :
+							hex_template = va_arg(args, int);
+							byte_len += console_write_hex(hex_template);
 							break;
 				//string
 				case 's' :	str_template = va_arg(args,char *);
